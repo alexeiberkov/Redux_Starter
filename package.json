@@ -1,14 +1,15 @@
 {
-  "name": "redux-ru-tutorial",
+  "name": "Redux_Starter",
   "version": "1.0.0",
-  "description": "Redux RU tutorial",
+  "description": "Redux tutorial",
   "main": "index.js",
   "scripts": {
     "start": "node server.js"
   },
-  "author": "Maxim Patsianskiy",
+  "author": "Aliaksei Berkau",
   "license": "MIT",
   "devDependencies": {
+    "autoprefixer": "^7.1.4",
     "babel-core": "^6.4.5",
     "babel-eslint": "^4.1.6",
     "babel-loader": "^6.2.1",
@@ -16,11 +17,15 @@
     "babel-preset-es2015": "^6.3.13",
     "babel-preset-react": "^6.3.13",
     "babel-preset-stage-0": "^6.3.13",
+    "css-loader": "^0.28.7",
     "eslint": "^1.10.3",
     "eslint-loader": "^1.2.1",
     "eslint-plugin-react": "^3.16.1",
     "express": "^4.13.4",
+    "postcss-loader": "^2.0.6",
+    "precss": "^2.0.0",
     "react-hot-loader": "^1.3.0",
+    "style-loader": "^0.18.2",
     "webpack": "^1.12.12",
     "webpack-dev-middleware": "^1.5.1",
     "webpack-hot-middleware": "^2.6.4"
@@ -28,9 +33,11 @@
   "dependencies": {
     "babel-polyfill": "^6.3.14",
     "babel-runtime": "^6.3.19",
+    "npm-install-webpack-plugin": "^4.0.5",
+    "postcss-loader": "1.0.0",
     "react": "^0.14.6",
     "react-dom": "^0.14.6",
-    "react-redux": "^4.0.6",
-    "redux": "^3.0.6"
+    "react-redux": "^4.4.8",
+    "redux": "^3.7.2"
   }
 }
