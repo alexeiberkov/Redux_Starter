@@ -38,6 +38,8 @@
     "react": "^0.14.6",
     "react-dom": "^0.14.6",
     "react-redux": "^4.4.8",
-    "redux": "^3.7.2"
+    "redux": "^3.7.2",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.2.0"
   }
 }
