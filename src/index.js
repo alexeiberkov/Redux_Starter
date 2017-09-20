@@ -1,52 +1,65 @@
-/*
-import 'babel-polyfill'
-import React from 'react'
-import { render } from 'react-dom'
-import { Provider } from 'react-redux'
-import App from './containers/App'
-import './styles/app.css'
-import configureStore from './store/configureStore'
-
-const store = configureStore()
-
-render(
-    <Provider store={store}>
-        <App />
-    </Provider>,
-    document.getElementById('root')
-)*/
-
 import { FIRST_NAMES } from './constants/FirstNames'
 import { createStore, combineReducers } from 'redux'
 
+const initialState = {
+    creatures: [],
+    money: 10
+};
+
+
 const creatures = (creatures = [], action) => {
-    switch (action.type) {
-        case 'ADD_CREATURE':
-            return [
-                ...creatures,
-                action.payload
-            ];
-        default:
-            return creatures;
+
+    if(action.type == 'ADD_CREATURE') {
+        return [...creatures, action.payload]
+
     }
+
+    return creatures;
 };
 
 const money = (money = 0, action) => {
-    switch (action.type) {
-        case 'ADD_MONEY':
-            return money + 1;
-        default:
-            return money;
+
+    if (action.type == 'ADD_MONEY') {
+        return money + 1;
     }
+
+    return money;
 };
 
-const AppReducer = combineReducers({
+
+
+
+const compositeReducer = combineReducers({
     creatures,
     money
+
 });
 
-const store = createStore(AppReducer);
+/*
+const compositeReducer = (currentAppState = initialState, action) => {
+    return {
+        creatures: creaturesReducer(currentAppState.creatures, action),
+        money: moneyReducer(currentAppState.money, action)
+    }
+};*/
 
+const store = createStore(compositeReducer, initialState);
+
+
+setInterval(function () {
+    console.log(store.getState());
+}, 1000);
+
+
+
+
+
+
+
+
+
+
+/*
 
 const render = () => {
     console.log(store.getState());
@@ -54,10 +67,26 @@ const render = () => {
 
 store.subscribe(render);
 render();
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 document.getElementById('caver').addEventListener('click', () => {
+
+
     store.dispatch({
         type: 'ADD_CREATURE',
         payload: {
@@ -65,10 +94,16 @@ document.getElementById('caver').addEventListener('click', () => {
             text: FIRST_NAMES[Math.floor(Math.random()*FIRST_NAMES.length)]
         }
     });
+
+
 });
 
 document.getElementById('sun').addEventListener('click', () => {
+
+
     store.dispatch({
         type: 'ADD_MONEY'
     });
+
+
 });
